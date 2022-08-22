@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="root">
+        <nav>
+            <transition name="fade">
+                <div class="menu" v-if="menuState">
+                    <div class="menu-content">
+                        <div class="menu_button-wrap">
+                            <close-menu-button @on-close="closeMenu"></close-menu-button>
+                        </div>
+                        <ul class="menu-list">
+                            <li class="title">Все продукты</li>
+                            <li>
+                                <a @click="showSubMenu('forAdult', 'Продукты для взрослых')">
+                                    Продукты для взрослых
+                                    <img class="arrow" src="./assets/arrovright.svg" alt="arrow right">
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="showSubMenu('forKid', 'Продукты для детей')">
+                                    Продукты для детей
+                                    <img class="arrow" src="./assets/arrovright.svg" alt="arrow right">
+                                </a>
+                            </li>
+                            <li>
+                                <div class="horizontal-row"></div>
+                            </li>
+                            <li><a>О компании</a></li>
+                            <li><a>Сертификаты</a></li>
+                            <li><a>Вопрос-ответ</a></li>
+                            <li><a>Блог</a></li>
+                        </ul>
+                    </div>
+                    <menu-footer></menu-footer>
+                </div>
+            </transition>
+
+
+            <transition name="fade">
+                <div class="menu" v-if="subMenuState">
+                    <div class="menu-content">
+                        <div class="menu_button-wrap">
+                            <close-menu-button @on-close="closeMenu"></close-menu-button>
+                        </div>
+                        <sub-menu :list="subMenuList" :title="nameSubMenuCategory" @on-hide="hideSubMenu">
+                        </sub-menu>
+                    </div>
+                    <menu-footer></menu-footer>
+                </div>
+            </transition>
+        </nav>
+
+        <header class="header content">
+            <div class="content-container">
+                <div class="header_top container">
+                    <div>
+                        <transition name="fade" mode="out-in">
+                            <button class="button_icon" @click="showMenu" key="menu">
+                                <img src="./assets/menu.svg" alt="menu open">
+                            </button>
+                        </transition>
+                        <button class="header-second-button button_icon">
+                            <img src="./assets/search.svg">
+                        </button>
+                    </div>
+                    <a href="#">
+                        <img class="main-logo" src="./assets/logo.svg">
+                    </a>
+                    <div>
+                        <button class="button_icon">
+                            <img src="./assets/user.svg">
+                        </button>
+                        <button class="header-second-button button_icon">
+                            <img src="./assets/cart.svg">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="header_options container">
+                <div class="header_options-container" >
+                    <a class="header_options_btn">Омега-3</a>
+                    <a class="header_options_btn">Витамины</a>
+                    <a class="header_options_btn">Добавки</a>
+                    <a class="header_options_btn">О нас</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="content-grid content-container">
+                <div class="most-popular">
+                    <div class="fade-text  content_text">Most popular searches</div>
+                    <ul class="content-options-list">
+                        <li v-for="item in mostPopularSearches" :key="item.id">
+                            <a> {{item.title}} </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="fade-text  content_text">Популярное в этой категории</div>
+                    <div class="products-grid">
+                        <product-item v-for="item in allProducts" :key="item.id" :item="item" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

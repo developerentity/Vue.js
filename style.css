@@ -1,0 +1,273 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    font-family: 'Gilroy', sans-serif;
+    background-color: #F9F9F9;
+}
+
+body,
+.header_options_btn,
+.menu-footer_select-block select {
+    color: #00284F;
+}
+
+ul {
+    list-style-type: none;
+    text-align: start;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+select,
+li,
+button,
+a {
+    cursor: pointer;
+}
+
+button:hover,
+.menu li:hover,
+.menu-footer_call-section a:hover,
+.menu-footer_select-block select:hover,
+.fade-text {
+    opacity: 0.5;
+}
+
+.header-second-button {
+    margin-left: 2.5rem;
+}
+
+.content-container {
+    margin: 0px auto;
+    max-width: 1480px;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.header {
+    background-color: #FFFFFF;
+}
+
+.header_top,
+.header_options {
+    display: flex;
+}
+
+.header_top {
+    justify-content: space-between;
+}
+
+.header_options {
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+.header_options_btn {
+    margin: 0 1.25rem;
+}
+
+.main-logo {
+    width: 198px;
+    height: 32px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.content_text {
+    padding: 1.5rem 0;
+}
+
+.content-options-list li:not(:first-child),
+.menu li:not(:first-child) {
+    margin-top: 1.5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.product img {
+    width: 100%;
+    object-fit: cover;
+    background-color: #EFEFEF;
+}
+
+.product_title {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.product_description {
+    margin-top: 0.75rem;
+    line-height: 16px;
+}
+
+.product_amount {
+    margin-top: 0.75rem;
+    line-height: 16px;
+}
+
+.horizontal-row:after {
+    content: " ";
+    display: block;
+    border-bottom: 2px solid #00284f1e;
+    width: 100%;
+    cursor: default;
+}
+
+.menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 432px;
+    height: 100%;
+    padding: 2rem;
+    background: #fff;
+    z-index: 10;
+}
+
+.menu_button-wrap {
+    height: 110px;
+}
+
+.menu .title {
+    font-weight: 700;
+}
+
+.menu .arrow {
+    margin-left: 1rem;
+}
+
+.menu .arrow-left {
+    margin-right: 1rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.menu-footer {
+    width: 100%;
+}
+
+.menu-footer_select-block,
+.menu-footer_call-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-footer_call-section a {
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-footer .horizontal-row,
+.menu-footer_select-block,
+.menu-footer>div {
+    margin-top: 1.5rem;
+}
+
+.menu-footer_call-section .info,
+.menu-footer_select-block label {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #00284f32;
+}
+
+.menu-footer_select-block>div {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 767px) {
+    .content-grid {
+        display: block;
+    }
+
+    .most-popular {
+        display: none;
+    }
+
+    .main-logo {
+        width: 100px;
+        height: 16px;
+    }
+
+    .header .button_icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .header-second-button {
+        margin-left: 1.5rem;
+    }
+
+    .header_options-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header_options_btn {
+        margin: 0;
+    }
+
+    .menu,
+    .menu-content {
+        width: 100%;
+    }
+
+    .menu_button-wrap {
+        display: flex;
+        justify-content: flex-end;
+        height: auto;
+    }
+
+    .menu-list {
+        margin-top: 1rem;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+}
